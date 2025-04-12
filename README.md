@@ -11,4 +11,4 @@ Feel free to clone, fork, or use any part of this repository for your personal l
 To get a local copy of the repository, simply run the following command:
 
 ```sh
-git clone https://github.com/skido600/node-js-journey.git
+git clone https://github.com/skido600/my-node-js-journey.git
