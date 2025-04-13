@@ -1,8 +1,9 @@
+// ## creating basic server
+
 // this just a simple serever by default is Get when user check localhost:8000  this is just basic
 const http = require("http");
 // You're importing Node's built-in HTTP module.
 const data = require("./data.json");
-const { json } = require("stream/consumers");
 const server = http.createServer((req, res) => {
   // This creates a web server.
   // It takes a callback function with two arguments:
