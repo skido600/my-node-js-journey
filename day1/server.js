@@ -1,13 +1,23 @@
-// importing custom defined module
+// These are variables you can use anywhere in your Node.js file, like:
 
-// distructioning way of importing👏
-const { add, mutiple } = require("./module");
+// __dirname → Shows the folder path
 
-console.log(add(2, 3));
-console.log(mutiple(2, 3));
+// __filename → Shows the full file path
 
-// You are importing the entire module as a single object called👏
-const math = require("./module");
+// console.log() → Logs things
 
-console.log(math.add(1, 1));
-console.log(math.mutiple(2, 1));
+// setTimeout() → Runs code after a delay
+
+console.log(__dirname);
+console.log(__filename);
+
+setTimeout(() => {
+  console.log("This runs after 2 seconds");
+}, 2000);
+
+// In Node.js, global objects are variables or functions that are always available — you can use them anywhere without importing anything.
+
+// to check global
+console.log(global);
+
+// you will see fetch but is not avalible in new node version

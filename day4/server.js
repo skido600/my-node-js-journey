@@ -17,20 +17,48 @@ const path = require("path");
 // - callback: a function that runs after writing is done
 
 // Example:
-fs.writeFile(
-  path.join(__dirname, "day4.txt"),
-  "This is coming from day4 — just testing writeFile!",
-  (err) => {
-    if (err) {
-      console.log("❌ Error writing file:", err);
-      return;
-    }
-    console.log("✅ File created and written successfully!");
-  }
-);
+// fs.writeFile(
+//   path.join(__dirname, "day4.txt"),
+//   "This is coming from day4 — just testing writeFile!",
+//   (err) => {
+//     if (err) {
+//       console.log("❌ Error writing file:", err);
+//       return;
+//     }
+//     console.log("✅ File created and written successfully!");
+//   }
+// );
 
-// 📁 About path:
-// The `path` module helps us build file paths in a way that works
-// across all operating systems (Windows, macOS, Linux).
-// Using `path.join()` ensures we don’t accidentally mess up folder paths.
-// this path.join mean example i will look like  day4/day4.txt
+// ✅ fs.readFile
+// This method is used to read the contents of a file asynchronously.
+// It takes 3 arguments:
+// - file: the file path
+// - encoding: usually "utf-8" to convert buffer to text
+// - callback: a function with two parameters: error and data
+
+// By default, the data is returned as a buffer (binary format).
+// To convert it to readable text, we specify "utf-8" or use toString().
+
+fs.readFile(path.join(__dirname, "day4.txt"), "utf-8", (error, data) => {
+  if (error) return console.log("❌ Error reading file:", error);
+  console.log("📄 File content:", data);
+});
+
+console.log("✅ hello");
+
+// ✅ fs.readFileSync
+// This method reads the file synchronously — meaning the program will
+// wait (block) until the file is completely read before moving on.
+
+let data = fs.readFileSync(path.join(__dirname, "day4.txt"), "utf-8");
+console.log("📄 Sync read:", data);
+
+// ✅ Understanding sync vs async:
+// If we use fs.readFile (async), Node.js will not wait — it keeps running other code.
+// If we use fs.readFileSync (sync), it will pause and wait until the file is read.
+
+// ✅ About the path module:
+// The `path` module helps us build file paths that work on all operating systems.
+// Using `path.join()` prevents issues like using the wrong slashes (e.g. `\` on Windows, `/` on Mac/Linux).
+// Example:
+// path.join("day4", "day4.txt") => "day4/day4.txt" (or "day4\\day4.txt" on Windows)

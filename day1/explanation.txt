@@ -1,0 +1,15 @@
+🌍 What is Node.js?
+Node.js is a program that lets you run JavaScript outside the browser — like on your computer, in the terminal, or on a server.
+
+Normally, JavaScript runs only in web browsers like Chrome or Firefox. But thanks to Node.js, you can use JavaScript to:
+
+Build backend servers
+
+Make command-line tools
+
+Read and write files
+
+Connect to databases
+
+Build APIs and apps (like with Express.js)
+
