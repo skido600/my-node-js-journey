@@ -39,19 +39,19 @@ const path = require("path");
 // By default, the data is returned as a buffer (binary format).
 // To convert it to readable text, we specify "utf-8" or use toString().
 
-fs.readFile(path.join(__dirname, "day4.txt"), "utf-8", (error, data) => {
-  if (error) return console.log("❌ Error reading file:", error);
-  console.log("📄 File content:", data);
-});
+// fs.readFile(path.join(__dirname, "day4.txt"), "utf-8", (error, data) => {
+//   if (error) return console.log("❌ Error reading file:", error);
+//   console.log("📄 File content:", data);
+// });
 
-console.log("✅ hello");
+// console.log("✅ hello");
 
 // ✅ fs.readFileSync
 // This method reads the file synchronously — meaning the program will
 // wait (block) until the file is completely read before moving on.
 
-let data = fs.readFileSync(path.join(__dirname, "day4.txt"), "utf-8");
-console.log("📄 Sync read:", data);
+// let data = fs.readFileSync(path.join(__dirname, "day4.txt"), "utf-8");
+// console.log("📄 Sync read:", data);
 
 // ✅ Understanding sync vs async:
 // If we use fs.readFile (async), Node.js will not wait — it keeps running other code.
@@ -62,3 +62,21 @@ console.log("📄 Sync read:", data);
 // Using `path.join()` prevents issues like using the wrong slashes (e.g. `\` on Windows, `/` on Mac/Linux).
 // Example:
 // path.join("day4", "day4.txt") => "day4/day4.txt" (or "day4\\day4.txt" on Windows)
+
+// first pratice write data to json file
+
+try {
+  const write = fs.writeFileSync(
+    path.join(__dirname, "data2.json"),
+    JSON.stringify(
+      {
+        article:
+          "This repository contains my personal journey as I learn and explore Node.js. It includes various experiments and lessons that I’ve worked on to understand the core concepts of Node.js.",
+      },
+      null,
+      3
+    )
+  );
+} catch (error) {
+  console.log("Error writing file:", error);
+}
