@@ -58,3 +58,57 @@ fs.readFile(filePath, "utf-8", (err, data) => {
     err ? console.log(err.message) : console.log("win");
   });
 });
+
+//create a logger
+
+const EventEmitter = require("events");
+const fs = require("fs");
+const path = require("path");
+const chalk = require("chalk");
+
+//dir
+const logdir = path.join(process.cwd(), "logger");
+const test = path.join(logdir, "logger.txt");
+
+//check if exist
+if (!fs.existsSync(logdir)) {
+  fs.mkdirSync(logdir);
+}
+
+// call the instance of event
+const myEmitter = new EventEmitter();
+
+myEmitter.on("log", (msg) => {
+  const date = new Date().toISOString();
+  const logMessage = `${date} - ${msg}\n`;
+  try {
+    fs.appendFileSync(test, logMessage);
+    console.log("Logged:", msg);
+  } catch (err) {
+    console.error(err.message);
+  }
+});
+
+//i can export as module and use to show messages
+function logMessage(msg) {
+  myEmitter.emit("log", msg);
+}
+
+//exapmle writing file to day2 folder
+const dayfolder = path.join(process.cwd(), "..", "day2");
+const day2text = path.join(dayfolder, "day2text.txt");
+
+fs.writeFile(day2text, "testing node fs", (err) => {
+  if (err) {
+    logMessage(chalk.red(err.message));
+  }
+  logMessage(chalk.green("successfully written file"));
+});
+
+//let read file written
+fs.readFile(day2text, "utf-8", (err, data) => {
+  if (err) {
+    logMessage(chalk.red(err.message));
+  }
+  logMessage(chalk.green(data));
+});

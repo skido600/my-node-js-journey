@@ -1,8 +1,9 @@
-// Today we will be talking about writing and reading files,
-// and also about the `path` module in Node.js.
-
+// exploying file system
 const fs = require("fs");
 const path = require("path");
+
+// Today we will be talking about writing and reading files,
+// and also about the `path` module in Node.js.
 
 // ✅ What is fs?
 // fs stands for File System. It's a built-in Node.js module
@@ -64,19 +65,28 @@ const path = require("path");
 // path.join("day4", "day4.txt") => "day4/day4.txt" (or "day4\\day4.txt" on Windows)
 
 // first pratice write data to json file
+const Logdir = path.join(__dirname, "..", "logs");
+const LogfileDR = path.join(Logdir, "file.txt");
+
+console.log(LogfileDR);
+
+const timeStamp = new Date().toISOString();
+const message = `\n ${timeStamp} script ran successfully`;
+console.log(timeStamp);
+
+if (!fs.existsSync(Logdir)) {
+  fs.mkdirSync(Logdir);
+}
 
 try {
-  const write = fs.writeFileSync(
-    path.join(__dirname, "data2.json"),
-    JSON.stringify(
-      {
-        article:
-          "This repository contains my personal journey as I learn and explore Node.js. It includes various experiments and lessons that I’ve worked on to understand the core concepts of Node.js.",
-      },
-      null,
-      3
-    )
-  );
-} catch (error) {
-  console.log("Error writing file:", error);
+  fs.appendFileSync(LogfileDR, message);
+} catch (err) {
+  console.log(err);
 }
+
+const readme = fs.readFileSync(LogfileDR, "utf8", (error) => {
+  console.log(error);
+});
+
+fs.writeFileSync(LogfileDR, "");
+console.log(readme);
