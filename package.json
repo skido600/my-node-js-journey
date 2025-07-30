@@ -1,0 +1,12 @@
+{
+  "name": "my-node-js-journey",
+  "version": "1.0.0",
+  "description": "Welcome to my personal repository documenting my exploration into the world of Node.js! This project is a collection of experiments, lessons, and mini-projects I've worked on to grasp the core concepts of Node.js.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
