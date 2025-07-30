@@ -370,9 +370,9 @@ This project is licensed under the ISC License.
 
 ## ✍️ Author Info
 
-*   **LinkedIn**: [YourLinkedInUsername]
-*   **Twitter**: [YourTwitterHandle]
-*   **Portfolio**: [YourPortfolioLink]
+*   **LinkedIn**: https://www.linkedin.com/in/leo-wave-309637239/
+*   **Twitter**: https://x.com/Momentum1962
+
 
 ---
 [![Node.js](https://img.shields.io/badge/Node.js-339933?style=for-the-badge&logo=nodedotjs&logoColor=white)](https://nodejs.org/)
