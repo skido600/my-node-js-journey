@@ -5,12 +5,10 @@ const Postschema = mongoose.Schema(
     title: {
       type: String,
       required: true,
-      unique: true,
     },
-    context: {
+    content: {
       type: String,
       required: true,
-      unique: true,
     },
     authorID: {
       type: mongoose.Schema.Types.ObjectId,
@@ -18,9 +16,9 @@ const Postschema = mongoose.Schema(
       required: true,
     },
   },
-  { timestamp: true }
+  { timestamps: true }
 );
 
-const post = mongoose.model("Post", Postschema);
+const POST = mongoose.model("Post", Postschema);
 
-module.exports = post;
+module.exports = POST;

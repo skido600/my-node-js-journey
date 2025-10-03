@@ -16,8 +16,16 @@ const userschema = mongoose.Schema(
       type: String,
       required: true,
     },
+    isverified: {
+      type: Boolean,
+      default: false,
+    },
+    ProfileImage: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "profileimage",
+    },
   },
-  { timestamp: true }
+  { timestamps: true }
 );
 
 const User = mongoose.model("Users", userschema);

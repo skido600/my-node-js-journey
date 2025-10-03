@@ -7,7 +7,6 @@ const connectDb = async () => {
     console.log("connected to mongodb ", mongoose.connection.name);
   } catch (error) {
     console.log(error);
-
     throw new Error("issue connecting to db");
   }
 };

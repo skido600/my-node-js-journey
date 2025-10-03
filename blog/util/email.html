@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background: #f4f4f4;
+        padding: 20px;
+      }
+      .container {
+        max-width: 600px;
+        margin: auto;
+        background: white;
+        padding: 20px;
+        border-radius: 8px;
+      }
+      h2 {
+        color: #333;
+      }
+      a {
+        background: #007bff;
+        color: white;
+        padding: 10px 20px;
+        text-decoration: none;
+        border-radius: 5px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h2>Welcome, {{username}}!</h2>
+      <p>Thank you for signing up. Please verify your email below:</p>
+      <a href="{{verifyUrl}}" target="_blank">Verify Email</a>
+    </div>
+  </body>
+</html>
